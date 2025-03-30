@@ -1,5 +1,23 @@
-import Button from "@/gems/src/Button";
-import { Alert, View, Text } from "react-native";
+import { ActionSwipe } from "@/gems/src";
+import { Alert, View, Text, FlatList } from "react-native";
+
+const DATA = [
+  {
+    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+    title: "First Item",
+    subtitle: "Subtitle text 1",
+  },
+  {
+    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+    title: "Second Item",
+    subtitle: "Subtitle text 2",
+  },
+  {
+    id: "58694a0f-3da1-471f-bd96-145571e29d72",
+    title: "Third Item",
+    subtitle: "Subtitle text 3",
+  },
+];
 
 export default function Index() {
   const handlePress = () => {
@@ -14,7 +32,15 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Button label="TEST" />
+      <FlatList
+        style={{
+          flex: 1,
+          width: "100%",
+        }}
+        data={DATA}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <ActionSwipe />}
+      />
     </View>
   );
 }
