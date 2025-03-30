@@ -8,7 +8,11 @@
     "build": "tsc",
     "publish": "npm publish"
   },
+  "peerDependencies": {
+    "react-native-reanimated": "~3.16.1"
+  },
   "devDependencies": {
+    "react-native-reanimated": "~3.16.1",
     "typescript": "^4.5.4"
   },
   "files": [

@@ -1,9 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
-  withTiming,
 } from "react-native-reanimated";
 import {
   Gesture,
@@ -22,8 +21,8 @@ function ActionnSwipe({ icon }: ActionSwipeProps): JSX.Element {
     .onChange((event) => {
       offset.value = event.translationX;
     })
-    .onFinalize(() => {
-      offset.value = withSpring(0);
+    .onFinalize((event) => {
+      offset.value = withSpring(event.translationX < -170 ? -170 : 0);
     });
 
   const animatedStyles = useAnimatedStyle(() => ({
@@ -33,6 +32,14 @@ function ActionnSwipe({ icon }: ActionSwipeProps): JSX.Element {
   return (
     <GestureHandlerRootView>
       <View style={styles.wrapper}>
+        <View style={styles.actions}>
+          <Pressable style={[styles.button, styles.edit]}>
+            <Text style={styles.buttonIcon}>E</Text>
+          </Pressable>
+          <Pressable style={[styles.button, styles.delete]}>
+            <Text style={styles.buttonIcon}>X</Text>
+          </Pressable>
+        </View>
         <GestureDetector gesture={pan}>
           <Animated.View style={[styles.container, animatedStyles]}>
             {icon && <View style={styles.icon}>{icon}</View>}
@@ -52,7 +59,7 @@ export default ActionnSwipe;
 const styles = StyleSheet.create({
   wrapper: {
     width: "100%",
-    backgroundColor: "#e6e6e6",
+    backgroundColor: "#dbdbdb",
   },
   container: {
     backgroundColor: "white",
@@ -61,6 +68,7 @@ const styles = StyleSheet.create({
     padding: 16,
     flexDirection: "row",
     alignItems: "center",
+    zIndex: 1,
   },
   icon: {
     width: 48,
@@ -74,5 +82,27 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     opacity: 0.5,
+  },
+  actions: {
+    flexDirection: "row",
+    position: "absolute",
+    top: 0,
+    right: 0,
+    height: "100%",
+  },
+  button: {
+    width: 85,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  buttonIcon: {
+    color: "white",
+  },
+  edit: {
+    backgroundColor: "#5287b3",
+  },
+  delete: {
+    backgroundColor: "#b35252",
   },
 });
