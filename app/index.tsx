@@ -1,3 +1,4 @@
+import Button from "@/gems/src/Button";
 import { Alert, View, Text } from "react-native";
 
 export default function Index() {
@@ -13,7 +14,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>App reset</Text>
+      <Button label="TEST"></Button>
     </View>
   );
 }

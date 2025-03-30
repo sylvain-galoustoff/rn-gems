@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5", // Compilation vers ES5 pour la compatibilité
+    "module": "commonjs", // Utilisation du module CommonJS
+    "declaration": true, // Génère des fichiers de déclaration .d.ts
+    "outDir": "./dist", // Dossier de sortie des fichiers compilés
+    "rootDir": "./src", // Dossier racine des fichiers source à compiler
+    "esModuleInterop": true, // Interopérabilité avec les modules ES
+    "skipLibCheck": true, // Ignore les vérifications des types des librairies
+    "strict": true, // Active toutes les vérifications strictes de TypeScript
+    "jsx": "react-native" // Prise en charge du JSX pour React Native
+  },
+  "include": [
+    "src/**/*.ts", // Inclut tous les fichiers .ts dans src
+    "src/**/*.tsx" // Inclut tous les fichiers .tsx dans src
+  ],
+  "exclude": [
+    "dist" // Exclut le dossier dist pour éviter d'inclure les fichiers compilés
+  ]
+}

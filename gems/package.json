@@ -1,0 +1,20 @@
+{
+  "name": "rn-melogems",
+  "version": "0.0.5",
+  "description": "Composants React Native à publier",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "publish": "npm publish"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "keywords": [],
+  "author": "Votre nom",
+  "license": "MIT"
+}
