@@ -19,7 +19,7 @@ function ActionnSwipe({ icon }: ActionSwipeProps): JSX.Element {
 
   const pan = Gesture.Pan()
     .onChange((event) => {
-      offset.value = event.translationX;
+      offset.value = event.translationX < 0 ? event.translationX : 0;
     })
     .onFinalize((event) => {
       offset.value = withSpring(event.translationX < -170 ? -170 : 0);
