@@ -1,6 +1,6 @@
 {
   "name": "rn-melogems",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Composants React Native à publier",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

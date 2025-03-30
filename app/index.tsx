@@ -14,7 +14,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Button label="TEST"></Button>
+      <Button label="TEST" />
     </View>
   );
 }

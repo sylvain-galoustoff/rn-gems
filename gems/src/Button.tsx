@@ -1,12 +1,13 @@
-import { Pressable, Text, StyleSheet } from "react-native";
+import { Pressable, Text, StyleSheet, ViewStyle } from "react-native";
 
 type ButtonProps = {
   label: string;
+  style?: ViewStyle;
 };
 
-function Button({ label }: ButtonProps) {
+function Button({ label, style }: ButtonProps) {
   return (
-    <Pressable style={styles.button}>
+    <Pressable style={[styles.button, style]}>
       <Text style={styles.text}>{label}</Text>
     </Pressable>
   );
