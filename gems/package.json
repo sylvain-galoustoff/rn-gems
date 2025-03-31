@@ -1,6 +1,6 @@
 {
   "name": "rn-gems",
-  "version": "0.0.8",
+  "version": "0.0.11",
   "description": "Composants React Native à publier",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,17 +8,16 @@
     "build": "tsc",
     "publish": "npm publish"
   },
-  "peerDependencies": {
+  "dependencies": {
     "react-native-reanimated": "~3.16.1"
   },
   "devDependencies": {
-    "react-native-reanimated": "~3.16.1",
     "typescript": "^4.5.4"
   },
   "files": [
     "dist/**/*"
   ],
   "keywords": [],
-  "author": "Votre nom",
+  "author": "Sylvain Galoustoff",
   "license": "MIT"
 }
