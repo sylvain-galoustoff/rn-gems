@@ -20,8 +20,11 @@ const DATA = [
 ];
 
 export default function Index() {
-  const handlePress = () => {
-    Alert.alert("Test OK");
+  const handleDelete = (id: string | number) => {
+    Alert.alert(String("Delete this : " + id));
+  };
+  const handleEdit = (id: string | number) => {
+    Alert.alert(String("Edit this : " + id));
   };
 
   return (
@@ -39,7 +42,13 @@ export default function Index() {
         }}
         data={DATA}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <ActionSwipe />}
+        renderItem={({ item }) => (
+          <ActionSwipe
+            deleteAction={handleDelete}
+            editAction={handleEdit}
+            itemId={item.id}
+          />
+        )}
       />
     </View>
   );

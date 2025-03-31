@@ -12,9 +12,17 @@ import {
 
 type ActionSwipeProps = {
   icon?: JSX.Element;
+  itemId: string | number;
+  deleteAction: (id: string | number) => void;
+  editAction: (id: string | number) => void;
 };
 
-function ActionnSwipe({ icon }: ActionSwipeProps): JSX.Element {
+function ActionnSwipe({
+  icon,
+  itemId,
+  deleteAction,
+  editAction,
+}: ActionSwipeProps): JSX.Element {
   const offset = useSharedValue<number>(0);
 
   const pan = Gesture.Pan()
@@ -29,14 +37,22 @@ function ActionnSwipe({ icon }: ActionSwipeProps): JSX.Element {
     transform: [{ translateX: offset.value }],
   }));
 
+  const handleEdit = () => {
+    editAction(itemId);
+  };
+
+  const handleDelete = () => {
+    deleteAction(itemId);
+  };
+
   return (
     <GestureHandlerRootView>
       <View style={styles.wrapper}>
         <View style={styles.actions}>
-          <Pressable style={[styles.button, styles.edit]}>
+          <Pressable style={[styles.button, styles.edit]} onPress={handleEdit}>
             <Text style={styles.buttonIcon}>E</Text>
           </Pressable>
-          <Pressable style={[styles.button, styles.delete]}>
+          <Pressable style={[styles.button, styles.delete]} onPress={handleDelete}>
             <Text style={styles.buttonIcon}>X</Text>
           </Pressable>
         </View>
