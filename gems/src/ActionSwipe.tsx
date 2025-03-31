@@ -10,6 +10,9 @@ import {
   GestureDetector,
   GestureHandlerRootView,
 } from "react-native-gesture-handler";
+import Icon from "react-native-vector-icons/Feather";
+
+const trashIcon = <Icon name="trash-2" size={24} color="#fff" />;
 
 type ActionSwipeProps = {
   icon?: JSX.Element;
@@ -66,7 +69,7 @@ function ActionnSwipe({
             <Text style={styles.buttonIcon}>E</Text>
           </Pressable>
           <Pressable style={[styles.button, styles.delete]} onPress={handleDelete}>
-            <Text style={styles.buttonIcon}>X</Text>
+            {trashIcon}
           </Pressable>
         </View>
         <GestureDetector gesture={pan}>
