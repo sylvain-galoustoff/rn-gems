@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import Animated, {
+  ReduceMotion,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
@@ -24,13 +25,25 @@ function ActionnSwipe({
   editAction,
 }: ActionSwipeProps): JSX.Element {
   const offset = useSharedValue<number>(0);
+  const animationParams = {
+    duration: 2000,
+    dampingRatio: 0.5,
+    stiffness: 100,
+    overshootClamping: false,
+    restDisplacementThreshold: 0.01,
+    restSpeedThreshold: 2,
+    reduceMotion: ReduceMotion.System,
+  };
 
   const pan = Gesture.Pan()
     .onChange((event) => {
-      offset.value = event.translationX < 0 ? event.translationX : 0;
+      offset.value = withSpring(
+        event.translationX < 0 ? event.translationX : 0,
+        animationParams
+      );
     })
     .onFinalize((event) => {
-      offset.value = withSpring(event.translationX < -170 ? -170 : 0);
+      offset.value = withSpring(event.translationX < -100 ? -170 : 0, animationParams);
     });
 
   const animatedStyles = useAnimatedStyle(() => ({
