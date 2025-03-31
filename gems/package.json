@@ -1,6 +1,6 @@
 {
   "name": "rn-gems",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Composants React Native à publier",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
