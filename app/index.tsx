@@ -1,4 +1,5 @@
-import { ActionSwipe } from "@/gems/src";
+import { ActionSwipe, Modal } from "@/gems/src";
+import { useState } from "react";
 import { Alert, View, Text, FlatList } from "react-native";
 
 const DATA = [
@@ -20,8 +21,11 @@ const DATA = [
 ];
 
 export default function Index() {
+  const [showModal, setShowModal] = useState(false);
+
   const handleDelete = (id: string | number) => {
-    Alert.alert(String("Delete this : " + id));
+    // Alert.alert(String("Delete this : " + id));
+    setShowModal(true);
   };
   const handleEdit = (id: string | number) => {
     Alert.alert(String("Edit this : " + id));
@@ -50,6 +54,7 @@ export default function Index() {
           />
         )}
       />
+      {showModal && <Modal handleClose={() => setShowModal(false)} />}
     </View>
   );
 }

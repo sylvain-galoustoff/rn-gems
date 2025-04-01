@@ -13,6 +13,7 @@ import {
 import Icon from "react-native-vector-icons/Feather";
 
 const trashIcon = <Icon name="trash-2" size={24} color="#fff" />;
+const editIcon = <Icon name="edit-3" size={24} color="#fff" />;
 
 type ActionSwipeProps = {
   icon?: JSX.Element;
@@ -66,7 +67,7 @@ function ActionnSwipe({
       <View style={styles.wrapper}>
         <View style={styles.actions}>
           <Pressable style={[styles.button, styles.edit]} onPress={handleEdit}>
-            <Text style={styles.buttonIcon}>E</Text>
+            {editIcon}
           </Pressable>
           <Pressable style={[styles.button, styles.delete]} onPress={handleDelete}>
             {trashIcon}
