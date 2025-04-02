@@ -2,14 +2,13 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 type ModalProps = {
   handleClose: () => void;
+  modalBox: JSX.Element;
 };
 
-function Modal({ handleClose }: ModalProps) {
+function Modal({ handleClose, modalBox }: ModalProps) {
   return (
     <Pressable style={styles.layer} onPress={handleClose}>
-      <View>
-        <Text>Modal</Text>
-      </View>
+      <View>{modalBox}</View>
     </Pressable>
   );
 }
