@@ -24,6 +24,8 @@ export default function Index() {
   const [showModal, setShowModal] = useState(false);
 
   const handleDelete = (id: string | number) => {
+    console.log("delete");
+
     // Alert.alert(String("Delete this : " + id));
     setShowModal(true);
   };

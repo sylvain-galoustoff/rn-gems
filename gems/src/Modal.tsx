@@ -6,8 +6,8 @@ type ModalProps = {
 
 function Modal({ handleClose }: ModalProps) {
   return (
-    <Pressable onPress={handleClose}>
-      <View style={styles.layer}>
+    <Pressable style={styles.layer} onPress={handleClose}>
+      <View>
         <Text>Modal</Text>
       </View>
     </Pressable>

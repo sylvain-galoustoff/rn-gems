@@ -41,12 +41,14 @@ function ActionnSwipe({
 
   const pan = Gesture.Pan()
     .onChange((event) => {
+      "worklet";
       offset.value = withSpring(
         event.translationX < 0 ? event.translationX : 0,
         animationParams
       );
     })
     .onFinalize((event) => {
+      "worklet";
       offset.value = withSpring(event.translationX < -100 ? -170 : 0, animationParams);
     });
 
@@ -54,11 +56,17 @@ function ActionnSwipe({
     transform: [{ translateX: offset.value }],
   }));
 
+  const resetSwipe = () => {
+    offset.value = withSpring(0, animationParams);
+  };
+
   const handleEdit = () => {
+    resetSwipe();
     editAction(itemId);
   };
 
   const handleDelete = () => {
+    resetSwipe();
     deleteAction(itemId);
   };
 
