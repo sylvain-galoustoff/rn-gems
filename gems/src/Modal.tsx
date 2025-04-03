@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 type ModalProps = {
   handleClose: () => void;
+  callback?: () => void;
   modalBox: JSX.Element;
 };
 
@@ -18,12 +19,13 @@ export default Modal;
 const styles = StyleSheet.create({
   layer: {
     position: "absolute",
-    backgroundColor: "red",
+    backgroundColor: "rgba(0,0,0,.8)",
     top: 0,
     left: 0,
     width: "100%",
     height: "100%",
     alignItems: "center",
-    padding: 32,
+    paddingHorizontal: 32,
+    paddingVertical: 64,
   },
 });

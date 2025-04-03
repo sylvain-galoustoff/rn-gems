@@ -1,7 +1,6 @@
-import ModalDelete from "@/components/Modal/ModalDelete";
 import { ActionSwipe, Modal } from "@/gems/src";
 import { useState } from "react";
-import { Alert, View, Text, FlatList } from "react-native";
+import { Alert, View, FlatList, Text } from "react-native";
 
 const DATA = [
   {
@@ -25,9 +24,6 @@ export default function Index() {
   const [showModalDelete, setShowModalDelete] = useState(false);
 
   const handleDelete = (id: string | number) => {
-    console.log("delete");
-
-    // Alert.alert(String("Delete this : " + id));
     setShowModalDelete(true);
   };
   const handleEdit = (id: string | number) => {
@@ -58,7 +54,10 @@ export default function Index() {
         )}
       />
       {showModalDelete && (
-        <Modal handleClose={() => setShowModalDelete(false)} modalBox={<ModalDelete />} />
+        <Modal
+          handleClose={() => setShowModalDelete(false)}
+          modalBox={<Text>MODAL</Text>}
+        />
       )}
     </View>
   );
